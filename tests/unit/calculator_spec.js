@@ -67,14 +67,12 @@ describe('calculator', function () {
   it('it should clear the running total without affecting the calculation', function(){
     calculator.numberClick(5)
     calculator.operatorClick('+')
-    calculator.numberClick(8)
-    calculator.operatorClick('=')
-    calculator.clearClick()
-    calculator.numberClick(1)
-    calculator.operatorClick('*')
     calculator.numberClick(5)
-    calculator.operatorClick('=')
-    const actual = calculator.runningTotal
-    assert.equal(actual, 5)
+    calculator.operatorClick('+')
+    calculator.numberClick(5)
+    calculator.operatorClick('+')
+    calculator.clearClick()
+    const actual = calculator.previousTotal
+    assert.equal(actual, 15)
   });
 });
